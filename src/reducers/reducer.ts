@@ -1,11 +1,4 @@
-export enum FormActionKind {
-	ADD_KEY = 'ADD_KEY',
-	REMOVE_KEY = 'REMOVE_KEY',
-	EDIT_KEY_DATA = 'EDIT_KEY_DATA',
-	EDIT_MESSAGE = 'EDIT_MESSAGE',
-	EDIT_RESULT = 'EDIT_RESULT',
-	RESET_ALL = 'RESET_ALL',
-};
+import { FormActionKind } from '#data/constants';
 
 export type FormAction = {
 	type: FormActionKind,
@@ -58,7 +51,7 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
 		};
 		case FormActionKind.EDIT_KEY_DATA: {
 			if (!data || !data.id || !data.value) {
-				throw new Error('No `data | data.id | data.value` was provided');
+				return state;
 			}
 
 			return {
@@ -71,7 +64,7 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
 		};
 		case FormActionKind.EDIT_MESSAGE: {
 			if (!data || !data.text) {
-				throw new Error('No `data | data.text` was provided');
+				return state;
 			}
 
 			return {
@@ -81,7 +74,7 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
 		};
 		case FormActionKind.EDIT_RESULT: {
 			if (!data || !data.result) {
-				throw new Error('No `data | data.result` was provided');
+				return state;
 			}
 
 			return {
