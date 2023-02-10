@@ -1,4 +1,4 @@
-import { letter } from '#root/data/letters';
+import { DEFAULT_LETTER } from '#root/data/constants';
 import { createNewSequence } from './createNewSequence';
 import { swapLetter } from './swapLetter';
 
@@ -11,19 +11,19 @@ type CipherProps = {
 export function cipher({ type, text, key }: CipherProps) {
 	const newSequence = createNewSequence({
 		key: key,
-		prevSequence: letter,
+		prevSequence: DEFAULT_LETTER,
 	});
 
 	let prevSequence = '';
 	let nextSequence = '';
 
 	if (type === 'encipher') {
-		prevSequence = letter;
+		prevSequence = DEFAULT_LETTER;
 		nextSequence = newSequence;
 	}
 	else if (type === 'decipher') {
 		prevSequence = newSequence;
-		nextSequence = letter;
+		nextSequence = DEFAULT_LETTER;
 	}
 
 	const result = swapLetter({
