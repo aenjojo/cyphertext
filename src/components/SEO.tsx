@@ -28,7 +28,7 @@ export function SEO({ title, description, keywords, pathUrl }: SEOProps) {
 			<meta property='og:title' content={title} />
 			<meta property='og:url' content={pageUrl} />
 			<meta property='og:description' content={description} />
-			<meta property='og:site_name' content={'Aen Jojo\'s Personal Website'} />
+			<meta property='og:site_name' content={'CypherText'} />
 
 			<meta property='twitter:card' content='summary' />
 			<meta property='twitter:title' content={title} />
